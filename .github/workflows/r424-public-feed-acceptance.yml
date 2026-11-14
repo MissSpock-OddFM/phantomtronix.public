@@ -1,0 +1,39 @@
+name: R424 Public Signed Latest-Feed and Redirect Acceptance
+on:
+  push:
+    paths:
+      - '.github/workflows/r424-public-feed-acceptance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-urls:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Independently verify public latest, signed metadata and exact immutable ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT='https://github.com/MissSpock-OddFM/phantomtronix.public'
+          mkdir -p /tmp/r424-feed
+          curl --fail --silent --show-error --location --retry 3 --max-time 90 "$ROOT/releases/latest/download/update-manifest.json" -o /tmp/r424-feed/latest-manifest.json
+          echo 'ccfd99ccd6da4cc12197f6d3709d5b700fe7cb115c07c052b5df85c407a50d27  /tmp/r424-feed/latest-manifest.json' | sha256sum -c
+          curl --fail --silent --show-error --location --retry 3 --max-time 90 "$ROOT/releases/download/v28.3.32/conveyor-club.zip" -o /tmp/r424-feed/conveyor-club.zip
+          echo 'f4414002fd7648554d905a9e1805cc509e9e3a36bb3892b74d7177212cf243da  /tmp/r424-feed/conveyor-club.zip' | sha256sum -c
+          python3 - <<'PY'
+          import json,zipfile,hashlib,pathlib
+          root=pathlib.Path('/tmp/r424-feed')
+          envelope=json.loads((root/'latest-manifest.json').read_text())
+          r=envelope['release']
+          assert envelope['schema']=='clink.signed-update.v1'
+          assert r['cartridgeId']=='conveyor-club' and r['version']=='28.3.32' and r['channel']=='stable'
+          assert r['publisher']=='PhantomTronix' and r['repository']=='MissSpock-OddFM/phantomtronix.public'
+          assert r['sha256']=='f4414002fd7648554d905a9e1805cc509e9e3a36bb3892b74d7177212cf243da'
+          with zipfile.ZipFile(root/'conveyor-club.zip') as z:
+           assert z.testzip() is None
+           m=json.loads(z.read('manifest.json'))
+           assert m['name']=='The Conveyor Club' and m['id']=='conveyor-club' and m['version']=='28.3.32'
+           assert len(m['files'])==44
+           assert all(hashlib.sha256(z.read(k)).hexdigest()==v for k,v in m['files'].items())
+          print('R424 LIVE_PUBLIC_LATEST_REDIRECT_PASS; SIGNED_RELEASE_SCHEMA_PASS; 44/44_RELEASE_ASSETS_PASS')
+          PY
