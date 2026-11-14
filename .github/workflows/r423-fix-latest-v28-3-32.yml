@@ -1,0 +1,55 @@
+name: R423 Repair Stable Latest Pointer v28.3.32
+on:
+  push:
+    paths:
+      - '.github/workflows/r423-fix-latest-v28-3-32.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: conveyor-club-stable-r423
+  cancel-in-progress: false
+jobs:
+  verify-published-then-set-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify exact stable signed release contents
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os,subprocess
+          repo=os.environ['REPO']
+          assert repo=='MissSpock-OddFM/phantomtronix.public'
+          obj=json.loads(subprocess.check_output(['gh','api',f'/repos/{repo}/releases/445370278'],text=True))
+          assert obj['tag_name']=='v28.3.32' and obj['draft'] is False and obj['prerelease'] is False
+          expected={
+            'conveyor-club.zip':(377565,'sha256:f4414002fd7648554d905a9e1805cc509e9e3a36bb3892b74d7177212cf243da'),
+            'update-manifest.json':(628,'sha256:ccfd99ccd6da4cc12197f6d3709d5b700fe7cb115c07c052b5df85c407a50d27'),
+          }
+          actual={a['name']:(a['size'],a['digest']) for a in obj['assets']}
+          assert actual==expected,actual
+          print('R423 VERIFIED_PUBLISHED_SIGNED_RELEASE_ASSETS: exact SHA-256 pinned.')
+          PY
+      - name: Mark pinned v28.3.32 as the public latest stable
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release edit v28.3.32 --repo "$REPO" --latest
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            actual="$(gh api "/repos/$REPO/releases/latest" --jq '.tag_name')"
+            echo "Attempt $i: latest=$actual"
+            if [ "$actual" = "v28.3.32" ]; then
+              echo 'R423 LATEST_STABLE_FEED_v28.3.32_VERIFIED'
+              exit 0
+            fi
+            sleep 3
+          done
+          echo 'PUBLIC RELEASE EXISTS BUT LATEST FEED NOT YET VERIFIED' >&2
+          exit 1
