@@ -1,0 +1,55 @@
+name: R423 Finish Verified v28.3.32 Conveyor Club Signed Release
+on:
+  push:
+    paths:
+      - '.github/workflows/r423-finish-v28-3-32.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: conveyor-club-stable-r423
+  cancel-in-progress: false
+jobs:
+  finish-verified-draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify exact signed production assets and current stable
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os,subprocess
+          repo=os.environ['REPO'];gh=lambda p:json.loads(subprocess.check_output(['gh','api',p],text=True))
+          assert repo=='MissSpock-OddFM/phantomtronix.public',repo
+          latest=gh('/repos/'+repo+'/releases/latest')
+          release=gh('/repos/'+repo+'/releases/445370278')
+          assert release['tag_name']=='v28.3.32'
+          assert release['draft'] is True and release['prerelease'] is False
+          assert latest['tag_name']=='v28.3.31' and latest['draft'] is False
+          actual={a['name']:(a['size'],a['digest']) for a in release['assets']}
+          expected={
+           'conveyor-club.zip':(377565,'sha256:f4414002fd7648554d905a9e1805cc509e9e3a36bb3892b74d7177212cf243da'),
+           'update-manifest.json':(628,'sha256:ccfd99ccd6da4cc12197f6d3709d5b700fe7cb115c07c052b5df85c407a50d27')
+          }
+          assert actual==expected,(actual,expected)
+          assert all(a['state']=='uploaded' for a in release['assets'])
+          print('R423 PINNED_SIGNED_DRAFT_VERIFIED: two assets, SHA256, size, uploaded, exact version, old latest preserved')
+          PY
+      - name: Publish the already-created and locally signed draft only
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api -X PATCH "/repos/$REPO/releases/445370278" -f draft=false -f make_latest=true --jq '{id,tag_name,draft,prerelease}' 
+          gh api "/repos/$REPO/releases/latest" --jq '{id,tag_name,draft,prerelease}' | tee /tmp/r423-latest.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/r423-latest.json'))
+          assert r['id']==445370278 and r['tag_name']=='v28.3.32' and r['draft'] is False and r['prerelease'] is False,r
+          print('R423 PUBLIC_SIGNED_STABLE_v28.3.32_VERIFIED. Player still needs normal in-place native auto-update acceptance.')
+          PY
