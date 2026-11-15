@@ -1,0 +1,133 @@
+name: R442 Recover Pinned Signed v28.3.35 Draft — Rename Game Asset and Publish
+on:
+  push:
+    paths:
+      - '.github/workflows/r442-recover-v28-3-35-signed-draft.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: conveyor-club-r442-draft-recovery
+  cancel-in-progress: false
+jobs:
+  recover-exact-signed-draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: MissSpock-OddFM/phantomtronix.public
+      REL_ID: '446382258'
+      TAG: v28.3.35
+      OLD_TAG: v28.3.34
+      GAME_SHA: 63303343f74ee1eba460378c4c3c659091c7c4e6332318152754d4e3a0cd34a3
+      SIGNED_SHA: b7d75666943db6d4c159b9ec9592f0c7d8477e13077d453529181e77aa0f28dc
+    steps:
+      - name: Pinned release, approved signer envelope and untouched latest version preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          d="$(mktemp -d)"
+          mkdir -p "$d"
+          gh api "/repos/$REPO/releases/$REL_ID" > "$d/draft.json"
+          gh api "/repos/$REPO/releases/latest" > "$d/latest.json"
+          python3 - "$d" <<'PY'
+          import os,sys,json
+          from pathlib import Path
+          d=Path(sys.argv[1])
+          release=json.loads((d/'draft.json').read_text())
+          latest=json.loads((d/'latest.json').read_text())
+          assert release['id']==int(os.environ['REL_ID']),release['id']
+          assert release['tag_name']==os.environ['TAG']
+          assert release['draft'] is True and release['prerelease'] is False
+          assert latest['tag_name']==os.environ['OLD_TAG'] and latest['id']==446244303
+          assert {a['name']:(a['id'],a['size'],a['digest'],a['state']) for a in release['assets']}=={
+           'local-candidate.zip':(752421133,384465,'sha256:'+os.environ['GAME_SHA'],'uploaded'),
+           'update-manifest.json':(752421139,628,'sha256:'+os.environ['SIGNED_SHA'],'uploaded')
+          }
+          print('R442 EXACT HUMAN SIGNED DRAFT TWO ASSETS, PRIOR LATEST, NO SURPRISE RELEASES — PASS')
+          PY
+          mkdir -p "$d/assets"
+          gh release download "$TAG" --repo "$REPO" --pattern local-candidate.zip --pattern update-manifest.json --dir "$d/assets"
+          printf '%s  %s\n' "$GAME_SHA" "$d/assets/local-candidate.zip" | sha256sum -c -
+          printf '%s  %s\n' "$SIGNED_SHA" "$d/assets/update-manifest.json" | sha256sum -c -
+          python3 - "$d/assets" <<'PY'
+          import os,sys,json,zipfile,hashlib,base64
+          from pathlib import Path
+          d=Path(sys.argv[1])
+          game=d/'local-candidate.zip'
+          signed=json.loads((d/'update-manifest.json').read_text())
+          assert signed['schema']=='clink.signed-update.v1'
+          meta=signed['release']
+          assert meta['version']=='28.3.35'
+          assert meta['cartridgeId']=='conveyor-club'
+          assert meta['publisher']=='PhantomTronix'
+          assert meta['repository']==os.environ['REPO']
+          assert meta['size']==384465
+          assert meta['sha256']==os.environ['GAME_SHA']
+          assert meta['artifactUrl']=='https://github.com/'+os.environ['REPO']+'/releases/download/v28.3.35/conveyor-club.zip'
+          assert len(base64.b64decode(signed['signature'],validate=True))==64
+          with zipfile.ZipFile(game) as z:
+           assert z.testzip() is None
+           m=json.loads(z.read('manifest.json'))
+           assert m['id']=='conveyor-club' and m['name']=='The Conveyor Club' and m['version']=='28.3.35'
+           assert len(m['files'])==48
+           assert all(hashlib.sha256(z.read(name)).hexdigest()==digest for name,digest in m['files'].items())
+           assert b'CLUB_ENTRY_DIRECT_PLAY' in z.read('web/dj-rotation-core.js')
+          print('R442 ON-GITHUB UPLOADED GAME 48/48 FILES AND ORIGINAL SIGNED MANIFEST FIELDS VERIFIED')
+          PY
+      - name: Rename the already uploaded, cryptographically pinned game asset — no rebuild or signer
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api --method PATCH "/repos/$REPO/releases/assets/752421133" --field name=conveyor-club.zip > /tmp/r442-renamed-asset.json
+          python3 - <<'PY'
+          import os,json
+          a=json.load(open('/tmp/r442-renamed-asset.json'))
+          assert a['id']==752421133 and a['name']=='conveyor-club.zip'
+          assert a['size']==384465 and a['digest']=='sha256:'+os.environ['GAME_SHA'] and a['state']=='uploaded'
+          print('R442 EXACT SIGNED GAME ASSET SAFELY RENAMED; BYTES AND SIGNATURE UNMODIFIED')
+          PY
+      - name: Verify both correctly named assets before permitting any publication
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,json,subprocess
+          j=json.loads(subprocess.check_output(['gh','api',f"/repos/{os.environ['REPO']}/releases/{os.environ['REL_ID']}"]))
+          assert j['draft'] is True and j['tag_name']==os.environ['TAG']
+          actual={a['name']:(a['size'],a['digest'],a['state']) for a in j['assets']}
+          expected={
+           'conveyor-club.zip':(384465,'sha256:'+os.environ['GAME_SHA'],'uploaded'),
+           'update-manifest.json':(628,'sha256:'+os.environ['SIGNED_SHA'],'uploaded')
+          }
+          assert actual==expected,(actual,expected)
+          print('R442 TWO EXPECTED EXACT SIGNED RELEASE ASSETS PASS')
+          PY
+      - name: Publish original signed v28.3.35; select it as latest stable
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release edit "$TAG" --repo "$REPO" --draft=false
+          gh release edit "$TAG" --repo "$REPO" --latest
+          for i in $(seq 1 12); do
+            if gh api "/repos/$REPO/releases/latest" --jq '.tag_name' | grep -Fxq "$TAG"; then
+              gh api "/repos/$REPO/releases/latest" > /tmp/r442-latest.json
+              python3 - <<'PY'
+          import os,json
+          j=json.load(open('/tmp/r442-latest.json'))
+          assert j['tag_name']==os.environ['TAG'] and j['id']==int(os.environ['REL_ID'])
+          assert j['draft'] is False and j['prerelease'] is False
+          actual={a['name']:(a['size'],a['digest'],a['state']) for a in j['assets']}
+          assert actual=={
+           'conveyor-club.zip':(384465,'sha256:'+os.environ['GAME_SHA'],'uploaded'),
+           'update-manifest.json':(628,'sha256:'+os.environ['SIGNED_SHA'],'uploaded')
+          }
+          print('R442 SIGNED RELEASE v28.3.35 LIVE AND LATEST; ORIGINAL SIGNER AND BYTES PRESERVED')
+          print('R442 NATIVE C.LINK FIELD UPDATE AND HUMAN AUDIBLE DJ TEST STILL PENDING')
+          PY
+              exit 0
+            fi
+            sleep 3
+          done
+          echo 'R442 PUBLIC LATEST STILL NOT VERIFIED' >&2
+          exit 1
