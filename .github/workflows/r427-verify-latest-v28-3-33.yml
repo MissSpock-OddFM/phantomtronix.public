@@ -1,0 +1,63 @@
+name: R427 Pin Existing Signed Conveyor Club v28.3.33 as Latest Stable
+on:
+  push:
+    paths:
+      - '.github/workflows/r427-verify-latest-v28-3-33.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: conveyor-club-stable-r427
+  cancel-in-progress: false
+jobs:
+  fix-existing-release-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify exact immutable signed v28.3.33 public release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,subprocess,json
+          repo=os.environ['REPO']
+          assert repo=='MissSpock-OddFM/phantomtronix.public'
+          def api(path):
+            return json.loads(subprocess.check_output(['gh','api',path],text=True))
+          release=api(f'/repos/{repo}/releases/446194311')
+          assert release['tag_name']=='v28.3.33' and release['draft'] is False and release['prerelease'] is False
+          actual={a['name']:(a['size'],a['digest'],a['state']) for a in release['assets']}
+          expect={
+             'conveyor-club.zip':(377981,'sha256:d73e68b2fe4384b84d651768fd6087ab0fb86b099bef514056aed07bdf5c08f7','uploaded'),
+             'update-manifest.json':(628,'sha256:a284ebfb01970edb725d6a86f6a8259116223a4c688ceb7e620736d8a842cbb3','uploaded'),
+          }
+          assert actual==expect,(actual,expect)
+          print('R427 EXISTING ED25519 SIGNED RELEASE AND BOTH ORIGINAL ASSETS EXACT PASS')
+          PY
+      - name: Set and independently verify existing release is latest stable
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="$(gh api "/repos/$REPO/releases/latest" --jq '.tag_name')"
+          echo "Before latest = $tag"
+          if [ "$tag" != 'v28.3.33' ]; then
+            test "$tag" = 'v28.3.32'
+            gh release edit v28.3.33 --repo "$REPO" --latest
+          fi
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            actual="$(gh api "/repos/$REPO/releases/latest" --jq '.tag_name')"
+            echo "Attempt $i latest=$actual"
+            if [ "$actual" = 'v28.3.33' ]; then
+              gh api "/repos/$REPO/releases/latest" --jq '{id,tag_name,draft,prerelease}'
+              echo 'R427 STABLE LATEST FEED v28.3.33 VERIFIED; no new assets, signer, or installation'
+              exit 0
+            fi
+            sleep 3
+          done
+          echo 'R427 LATEST FEED NOT VERIFIED' >&2
+          exit 1
