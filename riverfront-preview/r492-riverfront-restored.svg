@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1703" viewBox="0 0 512 545" role="img" aria-label="R453 provisional single continuous city with exact saved 68 business/home addresses fronting correct street names, including four bars, Little Napoleon, post office, industrial club, factory graveyard and outdoor fairgrounds."><style>
+.heading{font-family:DejaVu Sans,Arial,sans-serif;fill:#f8fcff;font-weight:900}
+.muted{font-family:DejaVu Sans,Arial,sans-serif;fill:#cfdae6;font-weight:700}
+.site,.callout,.street{font-family:DejaVu Sans,Arial,sans-serif;fill:#fff;font-weight:800;paint-order:stroke;stroke:#192430;stroke-width:1.5px;stroke-linejoin:round}
+.callout{fill:#f6d9ee;stroke-width:2px}.street{fill:#f7e6bc;stroke-width:1.7px}
+</style><rect width="512" height="512" fill="#101924"/>
+<g id="district-ground">
+<rect x="12" y="294" width="200" height="201" fill="#423239" opacity=".64" stroke="#547181" stroke-width=".7" rx="3"/>
+<rect x="232" y="383" width="93" height="112" fill="#26344d" opacity=".64" stroke="#547181" stroke-width=".7" rx="3"/>
+<rect x="233" y="299" width="94" height="84" fill="#26344d" opacity=".64" stroke="#547181" stroke-width=".7" rx="3"/>
+<rect x="233" y="50" width="90" height="118" fill="#26344d" opacity=".64" stroke="#547181" stroke-width=".7" rx="3"/>
+<rect x="348" y="295" width="157" height="98" fill="#26344d" opacity=".64" stroke="#547181" stroke-width=".7" rx="3"/>
+<rect x="349" y="27" width="153" height="251" fill="#244a45" opacity=".64" stroke="#547181" stroke-width=".7" rx="3"/>
+<rect x="12" y="65" width="198" height="221" fill="#244a3d" opacity=".64" stroke="#547181" stroke-width=".7" rx="3"/>
+<rect x="347" y="405" width="156" height="89" fill="#394051" opacity=".64" stroke="#547181" stroke-width=".7" rx="3"/>
+</g><g id="public-streets">
+<path d="M96 468 L96 400" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M96 468 L96 400" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M96 468 L96 400" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Forgotten Spur</title></path>
+<path d="M96 400 L224 400" fill="none" stroke="#050c12" stroke-width="13.3"/><path d="M96 400 L224 400" fill="none" stroke="#7d8c98" stroke-width="12"/><path d="M96 400 L224 400" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Factory Cut</title></path>
+<path d="M224 470 L224 54" fill="none" stroke="#050c12" stroke-width="13.3"/><path d="M224 470 L224 54" fill="none" stroke="#7d8c98" stroke-width="12"/><path d="M224 470 L224 54" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Main Street</title></path>
+<path d="M224 400 L496 400" fill="none" stroke="#050c12" stroke-width="13.3"/><path d="M224 400 L496 400" fill="none" stroke="#7d8c98" stroke-width="12"/><path d="M224 400 L496 400" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Market Street</title></path>
+<path d="M224 286 L496 286" fill="none" stroke="#050c12" stroke-width="13.3"/><path d="M224 286 L496 286" fill="none" stroke="#7d8c98" stroke-width="12"/><path d="M224 286 L496 286" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Crossroads</title></path>
+<path d="M224 224 L496 224" fill="none" stroke="#050c12" stroke-width="13.3"/><path d="M224 224 L496 224" fill="none" stroke="#7d8c98" stroke-width="12"/><path d="M224 224 L496 224" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Fairgrounds Boulevard</title></path>
+<path d="M338 448 L338 166" fill="none" stroke="#050c12" stroke-width="13.3"/><path d="M338 448 L338 166" fill="none" stroke="#7d8c98" stroke-width="12"/><path d="M338 448 L338 166" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Mall Parkway</title></path>
+<path d="M224 166 L338 166" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M224 166 L338 166" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M224 166 L338 166" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Studio Street</title></path>
+<path d="M24 92 L224 92" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M24 92 L224 92" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M24 92 L224 92" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Elm Street West</title></path>
+<path d="M24 144 L224 144" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M24 144 L224 144" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M24 144 L224 144" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Oak Street West</title></path>
+<path d="M24 207 L224 207" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M24 207 L224 207" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M24 207 L224 207" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Bank Street West</title></path>
+<path d="M24 248 L224 248" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M24 248 L224 248" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M24 248 L224 248" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Dock Street West</title></path>
+<path d="M48 72 L48 286" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M48 72 L48 286" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M48 72 L48 286" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Residential Avenue 48</title></path>
+<path d="M104 72 L104 286" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M104 72 L104 286" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M104 72 L104 286" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Residential Avenue 104</title></path>
+<path d="M160 72 L160 286" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M160 72 L160 286" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M160 72 L160 286" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Residential Avenue 160</title></path>
+<path d="M338 440 L496 440" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M338 440 L496 440" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M338 440 L496 440" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Dock Street East</title></path>
+<path d="M338 478 L496 478" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M338 478 L496 478" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M338 478 L496 478" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>South Market Street</title></path>
+<path d="M400 400 L400 496" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M400 400 L400 496" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M400 400 L400 496" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Commercial Avenue 400</title></path>
+<path d="M464 400 L464 496" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M464 400 L464 496" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M464 400 L464 496" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Commercial Avenue 464</title></path>
+<path d="M224 54 L338 54" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M224 54 L338 54" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M224 54 L338 54" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Upper Arts Road</title></path>
+<path d="M224 258 L338 258" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M224 258 L338 258" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M224 258 L338 258" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Center Street</title></path>
+<path d="M224 207 L338 207" fill="none" stroke="#050c12" stroke-width="11.3"/><path d="M224 207 L338 207" fill="none" stroke="#7d8c98" stroke-width="10"/><path d="M224 207 L338 207" fill="none" stroke="#e5be7b" stroke-dasharray="2.5 3.5" stroke-width=".52"><title>Bank Street East</title></path>
+</g><g id="reserved-sites">
+<rect x="24" y="420" width="60" height="56" rx="1.7" fill="#9d4b6f" stroke="#c4d9e5" stroke-width=".65"><title>THE CONVEYOR CLUB</title></rect>
+<text x="54" y="449" class="site" font-size="7" text-anchor="middle">CONVEYOR CLUB</text>
+<rect x="112" y="310" width="72" height="76" rx="1.7" fill="#b47c42" stroke="#c4d9e5" stroke-width=".65"><title>EDSEL PLANT</title></rect>
+<text x="148" y="349" class="site" font-size="5.2" text-anchor="middle">EDSEL PLANT</text>
+<rect x="112" y="414" width="78" height="74" rx="1.7" fill="#44524c" stroke="#c4d9e5" stroke-width=".65"><title>GRAVEYARD</title></rect>
+<text x="151" y="452" class="site" font-size="5.2" text-anchor="middle">GRAVEYARD</text>
+<rect x="174" y="158" width="36" height="37" rx="1.7" fill="#547c9a" stroke="#c4d9e5" stroke-width=".65"><title>POST OFFICE</title></rect>
+<text x="192" y="178.5" class="site" font-size="5.2" text-anchor="middle">POST OFFICE</text>
+<rect x="284" y="414" width="41" height="55" rx="1.7" fill="#39658e" stroke="#c4d9e5" stroke-width=".65"><title>CINEMA</title></rect>
+<text x="304.5" y="442.5" class="site" font-size="5.2" text-anchor="middle">CINEMA</text>
+<rect x="240" y="308" width="79" height="69" rx="1.7" fill="#39658e" stroke="#c4d9e5" stroke-width=".65"><title>ROLLER RINK</title></rect>
+<text x="279.5" y="343.5" class="site" font-size="5.2" text-anchor="middle">ROLLER RINK</text>
+<rect x="240" y="90" width="75" height="52" rx="1.7" fill="#39658e" stroke="#c4d9e5" stroke-width=".65"><title>PLANETARIUM</title></rect>
+<text x="277.5" y="117" class="site" font-size="5.2" text-anchor="middle">PLANETARIUM</text>
+<rect x="404" y="315" width="88" height="63" rx="1.7" fill="#39658e" stroke="#c4d9e5" stroke-width=".65"><title>VECTOR MALL</title></rect>
+<text x="448" y="347.5" class="site" font-size="5.2" text-anchor="middle">VECTOR MALL</text>
+<rect x="353" y="310" width="40" height="75" rx="1.7" fill="#3c5060" stroke="#c4d9e5" stroke-width=".65"><title>MALL PARKING / SERVICE</title></rect>
+<rect x="352" y="30" width="144" height="174" rx="1.7" fill="#3a7256" stroke="#c4d9e5" stroke-width=".65"><title>ODD FAIRGROUNDS</title></rect>
+<text x="424" y="118" class="site" font-size="5.2" text-anchor="middle">ODD FAIRGROUNDS</text>
+<rect x="355" y="240" width="138" height="31" rx="1.7" fill="#3c5060" stroke="#c4d9e5" stroke-width=".65"><title>FAIRGROUND PARKING</title></rect>
+</g><g id="fairgrounds-attractions">
+<rect x="358" y="46" width="50" height="51" rx="1" fill="#6c537a" stroke="#bfd1e3" stroke-width="1"/><text x="383" y="71.5" class="site" font-size="5.3" text-anchor="middle">HAUNTED DARK RIDE</text>
+<rect x="433" y="47" width="55" height="62" rx="1" fill="#5b7790" stroke="#bfd1e3" stroke-width="1"/><text x="460.5" y="78" class="site" font-size="5.3" text-anchor="middle">SPACE EXPLORER</text>
+<circle cx="420" cy="151" r="20" fill="#b6a34e" stroke="#eee9a1" stroke-width="1.2"/><text x="420" y="151" class="site" text-anchor="middle" font-size="6">FERRIS</text><text x="420" y="158" class="site" text-anchor="middle" font-size="6">WHEEL</text>
+<rect x="358" y="111" width="33" height="78" rx="1" fill="#5b7790" stroke="#bfd1e3" stroke-width="1"/><text x="374.5" y="150" class="site" font-size="5.3" text-anchor="middle">COASTER</text>
+<rect x="452" y="119" width="39" height="66" rx="1" fill="#5b7790" stroke="#bfd1e3" stroke-width="1"/><text x="471.5" y="152" class="site" font-size="5.3" text-anchor="middle">CARNIVAL BOOTHS</text>
+<rect x="354" y="34" width="140" height="162" rx="20" fill="none" stroke-dasharray="4 3" stroke="#ded6aa" stroke-width="1.2"/>
+</g><g id="vacant-future-properties">
+<rect x="21.8" y="58.599999999999994" width="8.399999999999999" height="8.400000000000006" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="204.5" y="276.1" width="8.399999999999977" height="8.399999999999977" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="204.5" y="76" width="8.399999999999977" height="8.400000000000006" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="21.8" y="258.7" width="8.399999999999999" height="8.399999999999977" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="117.5" y="171.70000000000002" width="8.400000000000006" height="8.399999999999977" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="21.8" y="163" width="8.399999999999999" height="8.399999999999977" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="117.5" y="58.599999999999994" width="8.400000000000006" height="8.400000000000006" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="117.5" y="267.40000000000003" width="8.400000000000006" height="8.399999999999977" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="65.3" y="110.8" width="8.400000000000006" height="8.400000000000006" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="178.4" y="215.20000000000002" width="8.399999999999977" height="8.399999999999977" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="74" y="223.9" width="8.400000000000006" height="8.399999999999977" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="143.60000000000002" y="110.8" width="8.399999999999977" height="8.400000000000006" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="195.8" y="128.20000000000002" width="8.399999999999977" height="8.399999999999977" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="65.3" y="276.1" width="8.400000000000006" height="8.399999999999977" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="126.2" y="223.9" width="8.399999999999991" height="8.399999999999977" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="74" y="67.3" width="8.400000000000006" height="8.400000000000006" fill="#2a644e" fill-opacity=".28" stroke="#78bba5" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE RESIDENTIAL — NO ADDRESS</title></rect>
+<rect x="230.60000000000002" y="23.8" width="8.399999999999977" height="8.400000000000002" fill="#2e5771" fill-opacity=".28" stroke="#9dbddd" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE COMMERCIAL — NO ADDRESS</title></rect>
+<rect x="474.2" y="458.8" width="8.399999999999977" height="8.399999999999977" fill="#2e5771" fill-opacity=".28" stroke="#9dbddd" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE COMMERCIAL — NO ADDRESS</title></rect>
+<rect x="413.3" y="206.5" width="8.399999999999977" height="8.399999999999977" fill="#2e5771" fill-opacity=".28" stroke="#9dbddd" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE COMMERCIAL — NO ADDRESS</title></rect>
+<rect x="230.60000000000002" y="484.90000000000003" width="8.399999999999977" height="8.399999999999977" fill="#2e5771" fill-opacity=".28" stroke="#9dbddd" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE COMMERCIAL — NO ADDRESS</title></rect>
+<rect x="239.3" y="267.40000000000003" width="8.399999999999977" height="8.399999999999977" fill="#2e5771" fill-opacity=".28" stroke="#9dbddd" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE COMMERCIAL — NO ADDRESS</title></rect>
+<rect x="291.5" y="145.60000000000002" width="8.399999999999977" height="8.399999999999977" fill="#2e5771" fill-opacity=".28" stroke="#9dbddd" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE COMMERCIAL — NO ADDRESS</title></rect>
+<rect x="308.90000000000003" y="380.5" width="8.399999999999977" height="8.399999999999977" fill="#2e5771" fill-opacity=".28" stroke="#9dbddd" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE COMMERCIAL — NO ADDRESS</title></rect>
+<rect x="482.90000000000003" y="302.2" width="8.399999999999977" height="8.399999999999977" fill="#2e5771" fill-opacity=".28" stroke="#9dbddd" stroke-dasharray="2 2" stroke-width=".9"><title>FUTURE COMMERCIAL — NO ADDRESS</title></rect>
+</g><g id="exact-68-address-parcels">
+<rect x="21.8" y="76" width="8.399999999999999" height="8.400000000000006" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>114 ELM ST — HOME 114 ELM ST — streets match; door NOT field-verified</title></rect>
+<rect x="239.3" y="458.8" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#e6a652" stroke="#102232" stroke-width=".8"><title>114 MAIN ST — LITTLE NAPOLEON&apos;S — streets match; door NOT field-verified</title></rect>
+<text x="243.5" y="465" text-anchor="middle" class="site" font-size="6.3">P</text>
+<rect x="361.1" y="415.3" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>114 MARKET ST — MINI MART — streets match; door NOT field-verified</title></rect>
+<rect x="134.9" y="119.5" width="8.399999999999977" height="8.400000000000006" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>114 OAK ST — HOME 114 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="21.8" y="215.20000000000002" width="8.399999999999999" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>115 BANK ST — HOME 115 BANK ST — streets match; door NOT field-verified</title></rect>
+<rect x="413.3" y="450.1" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#d965a6" stroke="#102232" stroke-width=".8"><title>115 DOCK ST — THE RUSTY ANCHOR — streets match; door NOT field-verified</title></rect>
+<text x="417.5" y="456.3" text-anchor="middle" class="site" font-size="6.3">B</text>
+<rect x="335" y="458.8" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>115 MARKET ST — CORNER GROCERY — streets match; door NOT field-verified</title></rect>
+<rect x="21.8" y="154.3" width="8.399999999999999" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>115 OAK ST — HOME 115 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="82.7" y="215.20000000000002" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>124 BANK ST — METRO BANK — streets match; door NOT field-verified</title></rect>
+<rect x="56.599999999999994" y="128.20000000000002" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>124 OAK ST — NORTHSIDE CREDIT UNION — streets match; door NOT field-verified</title></rect>
+<rect x="204.5" y="49.9" width="8.399999999999977" height="8.400000000000006" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>125 MAIN ST — CITY LAW ASSOCIATES — streets match; door NOT field-verified</title></rect>
+<rect x="204.5" y="102.1" width="8.399999999999977" height="8.400000000000006" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>132 ELM ST — HOME 132 ELM ST — streets match; door NOT field-verified</title></rect>
+<rect x="204.5" y="319.6" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>132 MAIN ST — FAMILY PHARMACY — streets match; door NOT field-verified</title></rect>
+<rect x="439.40000000000003" y="415.3" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>132 MARKET ST — SHOE REPAIR — streets match; door NOT field-verified</title></rect>
+<rect x="21.8" y="119.5" width="8.399999999999999" height="8.400000000000006" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>132 OAK ST — HOME 132 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="169.70000000000002" y="215.20000000000002" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>133 BANK ST — HOME 133 BANK ST — streets match; door NOT field-verified</title></rect>
+<rect x="21.8" y="223.9" width="8.399999999999999" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>133 DOCK ST — PAWN — streets match; door NOT field-verified</title></rect>
+<rect x="482.90000000000003" y="380.5" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>133 MARKET ST — ARCADE — streets match; door NOT field-verified</title></rect>
+<rect x="117.5" y="154.3" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>133 OAK ST — HOME 133 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="195.8" y="467.5" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>214 MAIN ST — HARDWARE STORE — streets match; door NOT field-verified</title></rect>
+<rect x="378.5" y="458.8" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>214 MARKET ST — FRESH PRODUCE — streets match; door NOT field-verified</title></rect>
+<rect x="169.70000000000002" y="128.20000000000002" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>214 OAK ST — HOME 214 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="82.7" y="189.10000000000002" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>215 BANK ST — HOME 215 BANK ST — streets match; door NOT field-verified</title></rect>
+<rect x="204.5" y="258.7" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>215 DOCK ST — DINER — streets match; door NOT field-verified</title></rect>
+<rect x="239.3" y="380.5" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>215 MARKET ST — BOOKS — streets match; door NOT field-verified</title></rect>
+<rect x="300.2" y="189.10000000000002" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#d965a6" stroke="#102232" stroke-width=".8"><title>224 BANK ST — BLUE HOUR LOUNGE — streets match; door NOT field-verified</title></rect>
+<text x="304.4" y="195.3" text-anchor="middle" class="site" font-size="6.3">B</text>
+<rect x="187.10000000000002" y="128.20000000000002" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>224 OAK ST — OAK STREET INSURANCE — streets match; door NOT field-verified</title></rect>
+<rect x="195.8" y="371.8" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>225 MAIN ST — FAMILY DENTAL — streets match; door NOT field-verified</title></rect>
+<rect x="204.5" y="223.9" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>232 MAIN ST — HOTEL — streets match; door NOT field-verified</title></rect>
+<rect x="239.3" y="415.3" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>232 MARKET ST — PET SUPPLIES — streets match; door NOT field-verified</title></rect>
+<rect x="82.7" y="128.20000000000002" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>232 OAK ST — HOME 232 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="239.3" y="189.10000000000002" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>233 BANK ST — HOME 233 BANK ST — streets match; door NOT field-verified</title></rect>
+<rect x="117.5" y="232.60000000000002" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>233 DOCK ST — LOCKSMITH — streets match; door NOT field-verified</title></rect>
+<rect x="430.7" y="458.8" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>233 MARKET ST — BARBER SHOP — streets match; door NOT field-verified</title></rect>
+<rect x="239.3" y="76" width="8.399999999999977" height="8.400000000000006" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>314 MAIN ST — COFFEE — streets match; door NOT field-verified</title></rect>
+<rect x="482.90000000000003" y="415.3" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>314 MARKET ST — TAILOR — streets match; door NOT field-verified</title></rect>
+<rect x="117.5" y="128.20000000000002" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>314 OAK ST — HOME 314 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="126.2" y="180.4" width="8.399999999999991" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>315 BANK ST — HOME 315 BANK ST — streets match; door NOT field-verified</title></rect>
+<rect x="482.90000000000003" y="424" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>315 DOCK ST — DONUT SHOP — streets match; door NOT field-verified</title></rect>
+<rect x="395.90000000000003" y="380.5" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>315 MARKET ST — DRY CLEANERS — streets match; door NOT field-verified</title></rect>
+<rect x="195.8" y="119.5" width="8.399999999999977" height="8.400000000000006" rx=".5" fill="#d965a6" stroke="#102232" stroke-width=".8"><title>324 OAK ST — THE SKYLINE ROOM — streets match; door NOT field-verified</title></rect>
+<text x="200" y="125.7" text-anchor="middle" class="site" font-size="6.3">B</text>
+<rect x="204.5" y="119.5" width="8.399999999999977" height="8.400000000000006" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>325 MAIN ST — CITY LIBRARY — streets match; door NOT field-verified</title></rect>
+<rect x="239.3" y="424" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>332 MAIN ST — BAKERY — streets match; door NOT field-verified</title></rect>
+<rect x="274.1" y="380.5" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>332 MARKET ST — FISH MARKET — streets match; door NOT field-verified</title></rect>
+<rect x="134.9" y="154.3" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>332 OAK ST — HOME 332 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="117.5" y="215.20000000000002" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>333 BANK ST — HOME 333 BANK ST — streets match; door NOT field-verified</title></rect>
+<rect x="352.40000000000003" y="424" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>333 DOCK ST — LAUNDRY — streets match; door NOT field-verified</title></rect>
+<rect x="317.6" y="380.5" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>333 MARKET ST — TOYS — streets match; door NOT field-verified</title></rect>
+<rect x="117.5" y="76" width="8.400000000000006" height="8.400000000000006" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>414 ELM ST — HOME 414 ELM ST — streets match; door NOT field-verified</title></rect>
+<rect x="221.9" y="484.90000000000003" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>414 MAIN ST — BIKE REPAIR — streets match; door NOT field-verified</title></rect>
+<rect x="439.40000000000003" y="380.5" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>414 MARKET ST — BAIL BONDS — streets match; door NOT field-verified</title></rect>
+<rect x="143.60000000000002" y="128.20000000000002" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>414 OAK ST — HOME 414 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="56.599999999999994" y="215.20000000000002" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>415 BANK ST — HOME 415 BANK ST — streets match; door NOT field-verified</title></rect>
+<rect x="65.3" y="258.7" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>415 DOCK ST — RECORDS — streets match; door NOT field-verified</title></rect>
+<rect x="482.90000000000003" y="458.8" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>415 MARKET ST — NOODLES — streets match; door NOT field-verified</title></rect>
+<rect x="65.3" y="119.5" width="8.400000000000006" height="8.400000000000006" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>415 OAK ST — HOME 415 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="265.40000000000003" y="189.10000000000002" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>424 BANK ST — ACCOUNTING OFFICE — streets match; door NOT field-verified</title></rect>
+<rect x="204.5" y="128.20000000000002" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>424 OAK ST — OAK STREET MEDICAL — streets match; door NOT field-verified</title></rect>
+<rect x="195.8" y="424" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>425 MAIN ST — CIVIC SERVICES — streets match; door NOT field-verified</title></rect>
+<rect x="74" y="110.8" width="8.400000000000006" height="8.400000000000006" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>432 ELM ST — HOME 432 ELM ST — streets match; door NOT field-verified</title></rect>
+<rect x="204.5" y="267.40000000000003" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#d965a6" stroke="#102232" stroke-width=".8"><title>432 MAIN ST — THE ELECTRIC FOX — streets match; door NOT field-verified</title></rect>
+<text x="208.7" y="273.6" text-anchor="middle" class="site" font-size="6.3">B</text>
+<rect x="317.6" y="484.90000000000003" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>432 MARKET ST — VET CLINIC — streets match; door NOT field-verified</title></rect>
+<rect x="30.500000000000004" y="128.20000000000002" width="8.400000000000002" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>432 OAK ST — HOME 432 OAK ST — streets match; door NOT field-verified</title></rect>
+<rect x="204.5" y="215.20000000000002" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>433 BANK ST — HOME 433 BANK ST — streets match; door NOT field-verified</title></rect>
+<rect x="169.70000000000002" y="232.60000000000002" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>433 DOCK ST — AUTO REPAIR — streets match; door NOT field-verified</title></rect>
+<rect x="274.1" y="415.3" width="8.399999999999977" height="8.399999999999977" rx=".5" fill="#72a3cc" stroke="#102232" stroke-width=".8"><title>433 MARKET ST — FLORIST — streets match; door NOT field-verified</title></rect>
+<rect x="74" y="163" width="8.400000000000006" height="8.399999999999977" rx=".5" fill="#74bb8b" stroke="#102232" stroke-width=".8"><title>433 OAK ST — HOME 433 OAK ST — streets match; door NOT field-verified</title></rect>
+</g><g id="marked-job-venue-names">
+<text x="243.5" y="455.8" text-anchor="middle" class="callout" font-size="5.5">LITTLE NAPOLEON&apos;S</text>
+<text x="417.5" y="447.1" text-anchor="middle" class="callout" font-size="5.5">THE RUSTY ANCHOR</text>
+<text x="304.4" y="186.10000000000002" text-anchor="middle" class="callout" font-size="5.5">BLUE HOUR LOUNGE</text>
+<text x="200" y="116.5" text-anchor="middle" class="callout" font-size="5.5">THE SKYLINE ROOM</text>
+<text x="208.7" y="264.40000000000003" text-anchor="middle" class="callout" font-size="5.5">THE ELECTRIC FOX</text>
+</g><g id="street-labels">
+<text x="224" y="260" class="street" text-anchor="middle" font-size="6.5">MAIN STREET</text>
+<text x="360" y="398" class="street" text-anchor="middle" font-size="6.5">MARKET STREET</text>
+<text x="124" y="90" class="street" text-anchor="middle" font-size="6.5">ELM STREET WEST</text>
+<text x="124" y="142" class="street" text-anchor="middle" font-size="6.5">OAK STREET WEST</text>
+<text x="124" y="205" class="street" text-anchor="middle" font-size="6.5">BANK STREET WEST</text>
+<text x="124" y="246" class="street" text-anchor="middle" font-size="6.5">DOCK STREET WEST</text>
+<text x="417" y="438" class="street" text-anchor="middle" font-size="6.5">DOCK STREET EAST</text>
+<text x="417" y="476" class="street" text-anchor="middle" font-size="6.5">SOUTH MARKET STREET</text>
+</g>
+<g id="header"><rect x="4" y="3" width="505" height="34" fill="#111923" fill-opacity=".95" rx="3"/><text x="12" y="13" class="heading" font-size="12">BIG CITY 2.0 — R492 RIVERFRONT RESTORED • DESIGN DRAFT</text><text x="12" y="22" class="muted" font-size="6.6">ALL 68 ORIGINAL SAVED ADDRESSES FACE THEIR CORRECT NAMED STREET · REAL ENTRANCES STILL UNTESTED</text><text x="12" y="30" class="muted" font-size="6.2">24 ORIGINAL HOMES · 44 BUSINESSES · 4 JOB BARS · LITTLE NAPOLEON'S · POST OFFICE · 22 ORIGINAL + 5 WATERFRONT ROADS (PROPOSED)</text></g>
+<g id="footer" transform="translate(0 27)"><rect x="4" y="492" width="504" height="16" rx="2" fill="#111923" fill-opacity=".96"/><text x="10" y="499" class="muted" font-size="5.8">GREEN: 24 RESIDENTS · BLUE: 39 SHOPS · PINK: 4 BARTENDING BARS · ORANGE: LITTLE NAPOLEON'S</text><text x="10" y="505.5" class="muted" font-size="5.8">DASHED: 24 UNBUILT LOTS · PROVISIONAL 512×512 WORLD · ONE EXTERIOR · NOT PLAYABLE YET</text></g><g id="R492-LOWER-LEGEND-PLINTH"><rect x="0" y="512" width="512" height="33" fill="#0c1822"/></g>
+<g id="R492-RIVERFRONT-RESTORATION-PROPOSED" data-baseline-road-count="22" data-proposed-new-road-count="5" data-original-addresses="68">
+<rect x="0" y="386" width="10" height="126" fill="#153f67" stroke="#80c3d9" stroke-width="0.4"/>
+<path d="M 0 402 Q 4 409 7 404 T 10 411 M 0 447 Q 4 455 7 450 T 10 458 M 0 485 Q 4 492 7 487 T 10 495" stroke="#4c96ad" stroke-width="0.7" fill="none"/>
+<rect x="10" y="386" width="3" height="126" fill="#adb1a5" stroke="#e5d6b0" stroke-width="0.3"/>
+<path d="M 11.4 390 L 11.4 511" stroke="#f5e6be" stroke-width="0.7" stroke-dasharray="2.5 2"/>
+<path d="M 18 500 L 206 500" fill="none" stroke="#edf0d6" stroke-width="11.8" stroke-linecap="round"/><path d="M 18 500 L 206 500" fill="none" stroke="#637685" stroke-width="10" stroke-linecap="round"/><path d="M 18 500 L 206 500" fill="none" stroke="#e0cb82" stroke-width="0.85" stroke-dasharray="3 3"/>
+<path d="M 18 411 L 96 411" fill="none" stroke="#edf0d6" stroke-width="9.8" stroke-linecap="round"/><path d="M 18 411 L 96 411" fill="none" stroke="#637685" stroke-width="8" stroke-linecap="round"/><path d="M 18 411 L 96 411" fill="none" stroke="#e0cb82" stroke-width="0.85" stroke-dasharray="3 3"/>
+<path d="M 18 411 L 18 485" fill="none" stroke="#edf0d6" stroke-width="9.8" stroke-linecap="round"/><path d="M 18 411 L 18 485" fill="none" stroke="#637685" stroke-width="8" stroke-linecap="round"/><path d="M 18 411 L 18 485" fill="none" stroke="#e0cb82" stroke-width="0.85" stroke-dasharray="3 3"/>
+<path d="M 18 485 L 96 485" fill="none" stroke="#edf0d6" stroke-width="9.8" stroke-linecap="round"/><path d="M 18 485 L 96 485" fill="none" stroke="#637685" stroke-width="8" stroke-linecap="round"/><path d="M 18 485 L 96 485" fill="none" stroke="#e0cb82" stroke-width="0.85" stroke-dasharray="3 3"/>
+<path d="M 96 468 L 96 500" fill="none" stroke="#edf0d6" stroke-width="11.8" stroke-linecap="round"/><path d="M 96 468 L 96 500" fill="none" stroke="#637685" stroke-width="10" stroke-linecap="round"/><path d="M 96 468 L 96 500" fill="none" stroke="#e0cb82" stroke-width="0.85" stroke-dasharray="3 3"/>
+<rect x="172" y="490" width="22" height="4" fill="#b9bd9f" stroke="#f0e2b8" stroke-width="0.5" rx="0.6"/>
+<rect x="178" y="490.5" width="10" height="3" fill="#d8a957" stroke="#fff4ce" stroke-width="0.5"/>
+<text x="183" y="493" text-anchor="middle" fill="#0c1721" font-size="2.6" font-family="DejaVu Sans,Arial" font-weight="bold">BUS</text>
+<path d="M72 482.4 L78 482.4 M72 484 L78 484 M72 485.7 L78 485.7 M72 487.2 L78 487.2" stroke="#ffffff" stroke-width="0.8" stroke-dasharray="1.5 0.4"/>
+<text x="5" y="460" transform="rotate(-90 5 460)" text-anchor="middle" font-family="DejaVu Sans,Arial" font-size="6.3" font-weight="bold" fill="#e5f6ff" stroke="#122b44" stroke-width="1.2" paint-order="stroke">RIVERFRONT</text>
+<text x="147" y="500.3" text-anchor="middle" font-family="DejaVu Sans,Arial" font-size="5.2" font-weight="bold" fill="#f5eee4" stroke="#1e2937" stroke-width="1.1" paint-order="stroke">RIVERFRONT MAIN ROAD</text>
+<text x="52" y="416" text-anchor="middle" font-family="DejaVu Sans,Arial" font-size="4.5" fill="#f8ede1" stroke="#23394b" stroke-width="1.5" paint-order="stroke">CLUB TURNAROUND LOOP</text>
+<text x="13" y="470" transform="rotate(-90 13 470)" text-anchor="middle" font-family="DejaVu Sans,Arial" font-size="3.3" fill="#fef3d3">SEAWALL / WALK</text>
+</g>
+<g id="R492-CORRECTION-NOTE"><text x="12" y="515" font-size="5" fill="#e0bd7e" font-family="DejaVu Sans,Arial">R492 CORRECTION: ORIGINAL RIVER, SEAWALL, SOUTH MAIN ROAD, BUS STOP &amp; CLUB LOOP RESTORED IN DESIGN. EXACT GEOMETRY NEEDS HUMAN REVIEW.</text></g>
+</svg>

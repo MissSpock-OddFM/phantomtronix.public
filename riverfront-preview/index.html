@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<meta name="theme-color" content="#091923">
+<title>Big City 2.0 • Riverfront Restored | R493 Phone Preview</title>
+<style>
+:root{color-scheme:dark;--bg:#07131c;--panel:#132a38;--edge:#385767;--text:#e5f0f1;--amber:#f8c986;--teal:#8de9d5}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;min-height:100dvh;background:var(--bg);color:var(--text);font:14px/1.3 system-ui,-apple-system,sans-serif;overflow:hidden}
+#app{height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+header{flex:none;padding:11px 13px 9px;background:#112735;border-bottom:1px solid var(--edge)}
+header .eyebrow{font-size:10px;letter-spacing:1.2px;font-weight:750;color:var(--teal)}
+h1{font-size:clamp(16px,3vw,23px);margin:4px 0 3px;font-weight:800;color:#ffe0a5}
+header p{font-size:12px;color:#b5cbd2;margin:0}
+nav{flex:none;display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:9px 10px;background:#0e222f}
+button{font:inherit;font-weight:700;min-height:40px;border:1px solid #5b7883;border-radius:7px;background:#1c3643;color:#e9f1ef;padding:8px 12px;touch-action:manipulation;cursor:pointer}
+button[aria-pressed="true"]{background:#4b3e29;color:#ffe2a8;border-color:#d4a65f}
+button:focus-visible,a:focus-visible{outline:2px solid #f2c878;outline-offset:2px}
+.navspacer{flex:1}
+#viewport{position:relative;flex:1;min-height:160px;overflow:hidden;background:#112332;touch-action:none;cursor:grab;isolation:isolate}
+#viewport.dragging{cursor:grabbing}
+#map{position:absolute;left:0;top:0;width:1600px;height:1703px;max-width:none;user-select:none;-webkit-user-drag:none;transform-origin:0 0;will-change:transform;pointer-events:none}
+#hint{position:absolute;left:12px;bottom:12px;background:rgba(10,27,37,.91);color:#e5f0f1;border:1px solid #557480;border-radius:7px;padding:6px 9px;font-size:11px;pointer-events:none}
+#status{position:absolute;top:10px;right:10px;background:rgba(12,28,36,.9);padding:5px 8px;border-radius:6px;border:1px solid #547080;font-size:11px;color:#ffd99b;pointer-events:none}
+footer{flex:none;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;background:#102533;padding:8px 12px;border-top:1px solid var(--edge);color:#c0d1d4;font-size:11px}
+a{color:#91e6d9}
+@media(max-width:430px){nav{padding:7px;gap:6px}button{font-size:12px;padding:7px 9px;min-height:39px}#hint{font-size:10px}}
+</style></head>
+<body><div id="app">
+<header><div class="eyebrow">THE CONVEYOR CLUB · BIG CITY 2.0 · R493 PUBLIC MAP REVIEW</div>
+<h1>The Riverfront is back.</h1>
+<p>West river · seawall · south main road · club turnaround · bus stop</p></header>
+<nav aria-label="Map view controls">
+<button id="river" type="button" aria-pressed="true">Riverfront</button>
+<button id="city" type="button" aria-pressed="false">Full city</button>
+<button id="hotel" type="button" aria-pressed="false">Club / hotel</button>
+<span class="navspacer"></span>
+<button id="minus" type="button" aria-label="Zoom out">−</button><button id="plus" type="button" aria-label="Zoom in">+</button>
+</nav>
+<main id="viewport" aria-label="Interactive pan and zoom review of restored Riverfront master map">
+<img id="map" alt="R492 revised Big City 2.0 plan showing original riverfront and restored main road with 68 original addresses" src="r492-riverfront-restored.svg" draggable="false">
+<div id="status" role="status">Design proposal · NOT live gameplay</div>
+<div id="hint">Drag to pan · pinch to zoom · choose a view above</div>
+</main>
+<footer><span>R492 drawing · 22 original roads + 5 proposed links · 68 addresses protected</span><span><a href="r492-riverfront-restored.svg" target="_blank" rel="noopener">Open original full-resolution SVG</a></span></footer>
+</div>
+<script>
+(()=>{
+'use strict';
+const viewport=document.getElementById('viewport'),map=document.getElementById('map');
+const modes=['river','city','hotel'];const natural={w:1600,h:1703};
+let scale=1,tx=0,ty=0,pointers=new Map(),pinchStart=null,active='river';
+const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+function render(){map.style.transform='translate3d('+tx+'px,'+ty+'px,0) scale('+scale+')'}
+function centerAt(rx,ry,newScale){
+ const w=viewport.clientWidth,h=viewport.clientHeight;scale=clamp(newScale,0.09,3.4);
+ tx=w/2-rx*natural.w*scale;ty=h/2-ry*natural.h*scale;render();
+}
+function go(mode){
+ active=mode;for(const m of modes)document.getElementById(m).setAttribute('aria-pressed',String(m===mode));
+ const w=viewport.clientWidth,h=viewport.clientHeight,full=Math.min(w/natural.w,h/natural.h);
+ if(mode==='city')centerAt(.5,.5,full*.95);
+ else if(mode==='hotel')centerAt(54/512,449/545,Math.max(full*2.45,Math.min(w/(natural.w*.32),h/(natural.h*.36))));
+ else centerAt(110/512,447/545,Math.max(full*2.1,Math.min(w/(natural.w*.55),h/(natural.h*.41))));
+}
+function zoom(factor,cx=viewport.clientWidth/2,cy=viewport.clientHeight/2){
+ const ox=(cx-tx)/scale,oy=(cy-ty)/scale;scale=clamp(scale*factor,.09,3.4);tx=cx-ox*scale;ty=cy-oy*scale;render();
+}
+for(const m of modes)document.getElementById(m).addEventListener('click',()=>go(m));
+document.getElementById('plus').addEventListener('click',()=>zoom(1.35));
+document.getElementById('minus').addEventListener('click',()=>zoom(1/1.35));
+function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}
+function midpoint(a,b){return{x:(a.x+b.x)/2,y:(a.y+b.y)/2}}
+viewport.addEventListener('pointerdown',e=>{
+ e.preventDefault();viewport.setPointerCapture(e.pointerId);pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+ if(pointers.size===2){const [a,b]=Array.from(pointers.values());pinchStart={d:dist(a,b),s:scale,c:midpoint(a,b),tx,ty}}
+ viewport.classList.add('dragging');
+});
+viewport.addEventListener('pointermove',e=>{
+ if(!pointers.has(e.pointerId))return;e.preventDefault();
+ const previous=pointers.get(e.pointerId);pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+ if(pointers.size===1){tx+=e.clientX-previous.x;ty+=e.clientY-previous.y;render()}
+ else if(pointers.size===2&&pinchStart){
+  const [a,b]=Array.from(pointers.values()),c=midpoint(a,b),rect=viewport.getBoundingClientRect();
+  const local={x:c.x-rect.left,y:c.y-rect.top},o={x:(pinchStart.c.x-rect.left-pinchStart.tx)/pinchStart.s,y:(pinchStart.c.y-rect.top-pinchStart.ty)/pinchStart.s};
+  scale=clamp(pinchStart.s*dist(a,b)/Math.max(1,pinchStart.d),.09,3.4);tx=local.x-o.x*scale;ty=local.y-o.y*scale;render();
+ }
+});
+function end(e){pointers.delete(e.pointerId);if(pointers.size<2)pinchStart=null;if(!pointers.size)viewport.classList.remove('dragging')}
+viewport.addEventListener('pointerup',end);viewport.addEventListener('pointercancel',end);
+viewport.addEventListener('wheel',e=>{e.preventDefault();const r=viewport.getBoundingClientRect();zoom(e.deltaY<0?1.2:1/1.2,e.clientX-r.left,e.clientY-r.top)},{passive:false});
+addEventListener('resize',()=>go(active));
+map.addEventListener('load',()=>go('river'));
+if(map.complete)go('river');
+})();
+</script></body></html>
