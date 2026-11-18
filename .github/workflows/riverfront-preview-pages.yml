@@ -1,0 +1,49 @@
+name: Riverfront design preview — GitHub Pages only
+on:
+  push:
+    branches: [gh-pages]
+    paths:
+      - 'riverfront-preview/**'
+      - 'index.html'
+      - '.nojekyll'
+      - '.github/workflows/riverfront-preview-pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: riverfront-public-review-pages
+  cancel-in-progress: true
+jobs:
+  publish-preview:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate that preview is visual-only and restored R492 is included
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          s=Path('riverfront-preview/r492-riverfront-restored.svg').read_text()
+          h=Path('riverfront-preview/index.html').read_text()
+          assert 'R492-RIVERFRONT-RESTORATION-PROPOSED' in s
+          assert 'RIVERFRONT MAIN ROAD' in s
+          assert 'touch-action:none' in h
+          assert 'NOT live gameplay' in h
+          print('R493_PHONE_RIVERFRONT_PUBLIC_REVIEW_SOURCE_VERIFIED')
+          PY
+      - name: Prepare isolated public preview (exclude release machinery)
+        run: |
+          mkdir -p dist
+          cp index.html .nojekyll dist/
+          cp -a riverfront-preview dist/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy phone-only Riverfront preview
+        id: deployment
+        uses: actions/deploy-pages@v4
