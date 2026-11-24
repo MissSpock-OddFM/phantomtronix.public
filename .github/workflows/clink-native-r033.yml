@@ -1,0 +1,73 @@
+name: C.Link native 0.4.8 signed acceptance
+on:
+  push:
+    paths:
+      - '.github/workflows/clink-native-r033.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: clink-native-acceptance
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'MissSpock-OddFM/phantomtronix.public' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify exact signed assets and publish without replacing game latest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd native-acceptance/0.4.8
+          echo '03eae20ac439047e0aa625a1307782eaf004c757218f92c0ea4969905951ce0c  clink-terminal-linux-x64.zip' | sha256sum -c -
+          echo '2d7da0969b561dc91052142e010b41b4944ef304dd6b6e22064106b66971477e  update-manifest.json' | sha256sum -c -
+          python3 - <<'PY'
+          import hashlib,json,pathlib,re,subprocess,tempfile
+          repo='MissSpock-OddFM/phantomtronix.public'
+          def gh(*args,missing=False):
+              r=subprocess.run(['gh',*args],capture_output=True,text=True,timeout=90)
+              if r.returncode:
+                  if missing and re.search(r'HTTP 404\b',r.stderr):return None
+                  raise RuntimeError('GitHub command failed: '+r.stderr[:600])
+              return r.stdout
+          def latest():
+              r=json.loads(gh('api',f'repos/{repo}/releases/latest'))
+              assert re.fullmatch(r'v\d+\.\d+\.\d+',r['tag_name'])
+              assert any(a['name']=='conveyor-club.zip' for a in r['assets'])
+              return r['tag_name']
+          def lookup(tag):
+              raw=gh('api',f'repos/{repo}/releases/tags/{tag}',missing=True)
+              return json.loads(raw) if raw else None
+          def ensure(tag,filename,title):
+              p=pathlib.Path(filename).resolve()
+              r=lookup(tag)
+              if r is None:
+                  gh('release','create',tag,str(p),'--repo',repo,'--title',title,'--notes','Exact locally signed native acceptance asset.','--draft','--latest=false')
+                  r=lookup(tag)
+              assert r is not None and not r['prerelease']
+              assert len(r['assets'])==1
+              a=r['assets'][0]
+              assert a['name']==filename and a['size']==p.stat().st_size and a['digest']=='sha256:'+hashlib.sha256(p.read_bytes()).hexdigest() and a['state']=='uploaded'
+              with tempfile.TemporaryDirectory() as d:
+                  gh('release','download',tag,'--repo',repo,'--pattern',filename,'--dir',d)
+                  assert (pathlib.Path(d)/filename).read_bytes()==p.read_bytes()
+              assert latest()==game
+              if r['draft']:
+                  gh('api','-X','PATCH',f"repos/{repo}/releases/{r['id']}",'-F','draft=false','-f','make_latest=false')
+              r=lookup(tag)
+              assert r is not None and not r['draft'] and not r['prerelease']
+              assert r['assets'][0]['digest']=='sha256:'+hashlib.sha256(p.read_bytes()).hexdigest()
+              assert latest()==game
+              print('VERIFIED_PUBLISHED',tag,a['digest'],flush=True)
+          game=latest()
+          ensure('clink-terminal-v0.4.8','clink-terminal-linux-x64.zip','C.Link Terminal 0.4.8')
+          ensure('clink-terminal-stable','update-manifest.json','C.Link native stable')
+          assert latest()==game
+          print('NATIVE_ACCEPTANCE_PUBLISHED; GAME_LATEST_PRESERVED',game)
+          PY
