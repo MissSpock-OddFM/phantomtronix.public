@@ -1,0 +1,45 @@
+name: C.Link signed native release publisher
+on:
+  push:
+    paths:
+      - 'native-acceptance/**/release-plan.json'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Exact staged native version
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: clink-native-acceptance
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'MissSpock-OddFM/phantomtronix.public' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Select one staged signed release and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_PROMPT_DISABLED: '1'
+          BEFORE: ${{ github.event.before }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -n "$REQUESTED_VERSION" ]]; then
+            version="$REQUESTED_VERSION"
+          else
+            mapfile -t plans < <(git diff --name-only --diff-filter=A "$BEFORE" HEAD -- 'native-acceptance/*/release-plan.json')
+            [[ "${#plans[@]}" == 1 ]]
+            version="${plans[0]#native-acceptance/}"
+            version="${version%/release-plan.json}"
+          fi
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          python3 native-acceptance/publish-signed.py "$version"
