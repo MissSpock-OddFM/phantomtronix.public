@@ -42,15 +42,17 @@ jobs:
               assert any(a['name']=='conveyor-club.zip' for a in r['assets'])
               return r['tag_name']
           def lookup(tag):
-              raw=gh('api',f'repos/{repo}/releases/tags/{tag}',missing=True)
-              return json.loads(raw) if raw else None
+              pages=json.loads(gh('api','--paginate','--slurp',f'repos/{repo}/releases?per_page=100'))
+              rows=[r for page in pages for r in page if r['tag_name']==tag]
+              assert len(rows)<=1, 'duplicate release tag'
+              return rows[0] if rows else None
           def ensure(tag,filename,title):
               p=pathlib.Path(filename).resolve()
               r=lookup(tag)
               if r is None:
                   gh('release','create',tag,str(p),'--repo',repo,'--title',title,'--notes','Exact locally signed native acceptance asset.','--draft','--latest=false')
                   r=lookup(tag)
-              assert r is not None and not r['prerelease']
+              assert r is not None and not r['prerelease'], 'release missing or prerelease'
               assert len(r['assets'])==1
               a=r['assets'][0]
               assert a['name']==filename and a['size']==p.stat().st_size and a['digest']=='sha256:'+hashlib.sha256(p.read_bytes()).hexdigest() and a['state']=='uploaded'
