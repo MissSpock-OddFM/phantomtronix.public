@@ -1,6 +1,9 @@
 """Publish exact approved candidate; no signing or client mutation."""
 import base64,hashlib,json,pathlib,re,subprocess,tempfile,sys
+if not __debug__: raise RuntimeError('VALIDATION_REQUIRED')
 repo='MissSpock-OddFM/phantomtronix.public'
+RECOVERY_GAP=('0.4.13','0.4.18','0.4.20','6232c8d9148123b732f0208840c153e0bb511895ae3b10c089f21f6923c63df5')
+RECOVERY_PREFIX='b9a9a15e56e65b813ab5475135b332e76e476417198d567f70b59b44727c4004'
 base=f'repos/{repo}/releases'
 version=sys.argv[1]
 assert re.fullmatch(r'(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)',version)
@@ -15,7 +18,6 @@ pin=plan['archiveSha256']
 new=plan['feedSha256']
 old=plan['previousFeedSha256']
 canonical='update-manifest.json'
-backup='update-manifest.previous-'+previous+'.json'
 staged='update-manifest.next-'+version+'.json'
 stable='clink-terminal-stable'
 tag='clink-terminal-v'+version
@@ -37,7 +39,10 @@ def signed_chain():
             assert tuple(map(int,r['version'].split('.')))>tuple(map(int,r['fromVersion'].split('.')))
             assert r['artifactUrl']==f"https://github.com/{repo}/releases/download/clink-terminal-v{r['version']}/{artifact.name}"
             assert re.fullmatch(r'[0-9a-f]{64}',r['sha256']) and 0<r['size']<=8*1024*1024
-            if i:assert offers[i-1]['release']['version']==r['fromVersion']
+            if i and offers[i-1]['release']['version']!=r['fromVersion']:
+                assert (offers[i-1]['release']['version'],r['fromVersion'],r['version'],r['sha256'])==RECOVERY_GAP
+                prefix=(json.dumps({'schema':data['schema'],'releases':offers[:i]},separators=(',',':'),ensure_ascii=False)+'\n').encode()
+                assert hashlib.sha256(prefix).hexdigest()==RECOVERY_PREFIX
             (p/'payload').write_bytes(json.dumps(r,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode())
             (p/'sig').write_bytes(base64.b64decode(e['signature'],validate=True))
             subprocess.run(['openssl','pkeyutl','-verify','-pubin','-inkey',str(p/'key'),'-rawin','-in',str(p/'payload'),'-sigfile',str(p/'sig')],check=True,capture_output=True,timeout=10)
@@ -46,6 +51,7 @@ def signed_chain():
     assert offers[-2]['release']['sha256']==plan['previousArchiveSha256']
     prior=(json.dumps({'schema':data['schema'],'releases':offers[:-1]},separators=(',',':'),ensure_ascii=False)+'\n').encode()
     assert hashlib.sha256(prior).hexdigest()==old
+    return offers[-2]['release']['version']
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def gh(*args):
     r=subprocess.run(['gh',*args],capture_output=True,text=True,timeout=90)
@@ -76,9 +82,10 @@ def rename(a,name):
 def main():
     assert artifact.stat().st_size==plan['archiveSize'] and sha(artifact)==pin
     assert sha(feed)==new
-    signed_chain()
+    published_previous=signed_chain()
+    backup='update-manifest.previous-'+published_previous+'.json'
     game=latest()
-    r=lookup('clink-terminal-v'+previous)
+    r=lookup('clink-terminal-v'+published_previous)
     assert r and not r['draft'] and matches(asset(r,artifact.name),plan['previousArchiveSha256'])
     s=lookup(stable)
     assert s and not s['draft'] and not s['prerelease'] and not s.get('immutable')
