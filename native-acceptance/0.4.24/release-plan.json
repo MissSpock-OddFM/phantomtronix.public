@@ -1,0 +1,9 @@
+{
+  "version": "0.4.24",
+  "fromVersion": "0.4.23",
+  "archiveSha256": "25cd51555387a6b8fb0e909e8df94c88f01c3f4eac4bc622e69c224b5671570e",
+  "archiveSize": 62521,
+  "previousArchiveSha256": "a547a495fcfdf02be0a464b857f06a693bd536b596f483781682d522fb5ee85b",
+  "previousFeedSha256": "e09c2d4eb49c86c23a350201566e1e9fa7531f3ac6d53144400c2fc2fbcc6cb7",
+  "feedSha256": "60ccbb74b0d0ff0fd830b1111c2c3af34df8901a66ff45e0813cbf974f22cdf7"
+}
